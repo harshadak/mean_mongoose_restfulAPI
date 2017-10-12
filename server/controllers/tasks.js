@@ -32,13 +32,13 @@ module.exports = {
     // Function to create a new task
 
     createTask: function(req, res) {
-        console.log("Data from the URL: ", req.params);
-        Task.create(req.params, function(err, task) {
+        console.log("Data from the URL: ", req.body);
+        Task.create(req.body, function(err, task) {
             if(err) {
                 console.log("Something went wrong", err);
             } else {
                 console.log("Here is your task", task);
-                res.send("Added a new task", task);
+                res.send("Added a new task"+task);
             }
         })
     },
